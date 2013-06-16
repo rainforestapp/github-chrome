@@ -116,3 +116,12 @@ body#github-chrome {
   border-bottom: 1px solid #eeeeee;
   padding: 1em;
 }
+/* line 15, ../sass/_repos.scss */
+#github-chrome .repo ul.meta {
+  font-size: 0.84615em;
+  line-height: 2.18182em;
+}
+/* line 17, ../sass/_repos.scss */
+#github-chrome .repo ul.meta > li {
+  float: left;
+}
