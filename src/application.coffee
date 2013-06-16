@@ -1,8 +1,22 @@
+auth = new GithubAuth()
+auth.auth()
+sync = Backbone.sync
+# then override original sync function
+Backbone.sync = (method, model, options) ->
+  options.headers = { 'Authorization': "token " + auth.auth() }
+  sync(method, model, options)
+
 class @GithubChrome extends Backbone.View
 
   initialize: (@options) ->
     @render()
     @badge = new Badge(1)
+
+    #chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
+    #chrome.alarms.onAlarm.addListener =>
+    #  @badge.addIssues(1)
+    @user = new User
+    @user.fetch()
 
   render: ->
     @renderNav()

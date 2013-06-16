@@ -11,6 +11,18 @@
   border-bottom: 1px solid $grey;
   padding: 0.5em 1em;
 
+  .title {
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   ul.meta {
     @include adjust-font-size-to(11px, 1, 13px);
     > li {
@@ -27,7 +39,8 @@
 
         &:hover {
           color: $black;
-          border-bottom-color: $dgrey;
+          // border-bottom-color: $dgrey;
+          text-decoration: underline;
         }
       }
 

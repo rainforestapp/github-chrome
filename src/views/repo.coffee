@@ -4,6 +4,5 @@ class @RepoView extends Backbone.View
   tagName: 'li'
 
   render: ->
-    @$el.html HAML['repo']()
+    @$el.html HAML['repo'](model: @model)
     @
-

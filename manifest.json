@@ -21,7 +21,9 @@
     "scripts" : []
   },
   "permissions": [
+    "alarms",
     "storage",
+    "alarms",
     "notifications",
     "https://github.com/login/oauth/access_token",
     "https://api.github.com/*"
@@ -36,7 +38,7 @@
     "assets/fonts/github-icons.ttf",
     "assets/fonts/github-icons.woff"
   ],
-  "icons": { 
+  "icons": {
     "16": "assets/images/octocat_16.png",
     "48": "assets/images/octocat_48.png",
     "128": "assets/images/octocat_128.png"

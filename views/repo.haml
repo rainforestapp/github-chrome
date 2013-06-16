@@ -1,17 +1,19 @@
-.title Some repo name
+.title
+  %a{href: @model.get("html_url"), target: '_blank'}
+    = @model.get('name')
 %ul.meta
   %li.issues
-    %a{ href: 'http://facebook.com' }
+    %a{ href: '#', title: 'Issues' }
       %span.octicon.octicon-issue-opened
       %span.content 
         13 issues
   %li.prs
-    %a{ href: '#' }
+    %a{ href: '#', title: 'Pull Requests' }
       %span.octicon.octicon-git-pull-request
       %span.content 
         2 PRs
   %li.updated
-    %a{ href: '#' }
+    %a{ href: '#', title: 'Last Updated' }
       %span.octicon.octicon-history
       %span.content 
         2 months ago

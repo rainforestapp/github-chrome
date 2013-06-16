@@ -3,14 +3,19 @@ class @ReposView extends Backbone.View
   className: 'repo-list'
   tagName: 'ol'
 
-  render: ->
+  initialize: ->
+    @collection = new RepoCollection
+    @collection.fetch
+      success: @render
+
+  render: =>
     @renderRepos()
     @
 
   renderRepos: ->
-    for i in [0...10] by 1
-      @renderRepo('something')
+    @collection.each (model) =>
+      @renderRepo(model)
 
   renderRepo: (repo) ->
-    view = new RepoView
+    view = new RepoView(model: repo)
     @$el.append view.render().el
