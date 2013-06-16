@@ -3,10 +3,9 @@ class @ReposView extends Backbone.View
   className: 'repo-list'
   tagName: 'ol'
 
-  initialize: ->
-    @collection = new RepoCollection
-    @collection.fetch
-      success: @render
+  initialize: (@options) ->
+    @collection = @options.collection
+    @.listenTo @collection, 'sync', @render
 
   render: =>
     @renderRepos()

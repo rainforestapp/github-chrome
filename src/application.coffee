@@ -1,5 +1,6 @@
 auth = new GithubAuth()
 auth.auth()
+
 sync = Backbone.sync
 # then override original sync function
 Backbone.sync = (method, model, options) ->
@@ -35,7 +36,9 @@ class @GithubChrome extends Backbone.View
     switch section
       when 'repos'
         @reposView = new ReposView
+          collection: new RepoCollection
         @$el.html @reposView.render().el
+        @reposView.collection.fetch()
 
       when 'settings'
         @oauthView = new OauthView

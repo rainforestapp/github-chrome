@@ -3,7 +3,7 @@ class @GithubAuth
     @githubAuth = new OAuth2("github",
       client_id: "a61d88bc98e28b1c1923"
       client_secret: "aba706c11f6852a38b4c6116de078eae6dfdf852"
-      api_scope: "repo"
+      api_scope: "user,repo"
     )
 
   logout: ->
@@ -15,4 +15,5 @@ class @GithubAuth
     else
       @githubAuth.authorize =>
         @token = @githubAuth.getAccessToken()
+    console.log 'Github api token:', @token
     @token
