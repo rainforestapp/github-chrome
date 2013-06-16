@@ -34,7 +34,9 @@ class @GithubChrome extends Backbone.View
     switch section
       when 'repos'
         @reposView = new ReposView
+          collection: new RepoCollection
         @$el.html @reposView.render().el
+        @reposView.collection.fetch()
 
       when 'settings'
         @oauthView = new OauthView
