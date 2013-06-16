@@ -11,5 +11,12 @@
     width: 100%;
     border-bottom: 1px solid $grey;
     padding: 1em;
+
+    ul.meta {
+      @include adjust-font-size-to(11px, 1, 13px);
+      > li {
+        float: left;
+      }
+    }
   }
 }
