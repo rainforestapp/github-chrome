@@ -12,10 +12,15 @@
     "matches": ["http://*/*", "https://*/*"],
     "js": ["build/hook.js"],
     "css": ["style/main.css"]
+    },
+    {
+      "matches": ["https://github.com/robots.txt*"],
+      "js": ["oauth2/oauth2_inject.js"],
+      "run_at": "document_start"
     }
   ],
   "background": {
     "scripts" : []
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "https://github.com/login/oauth/access_token", "https://api.github.com/*"]
 }
