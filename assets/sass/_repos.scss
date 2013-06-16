@@ -39,7 +39,6 @@
 
         &:hover {
           color: $black;
-          // border-bottom-color: $dgrey;
           text-decoration: underline;
         }
       }
@@ -53,6 +52,10 @@
         margin-left: 0;
       }
     }
+  }
+
+  &:hover {
+    background-color: tint($lblue, 50);
   }
 
   &:last-of-type {
