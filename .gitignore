@@ -1,2 +1,4 @@
 tags
 build/*
+*.DS_Store
+.sass_cache/*
