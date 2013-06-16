@@ -6,10 +6,14 @@ class @GithubAuth
       api_scope: "repo"
     )
 
+  logout: ->
+    @githubAuth.clearAccessToken()
+
   auth: ->
-    # n = new Notice()
-    @githubAuth.authorize =>
-      @token = @githubAuth.getAccessToken()
-      # n.create('New token', @token)
-      console.log(@token)
-      @token
+    if @githubAuth.hasAccessToken()? && !@githubAuth.isAccessTokenExpired()?
+      @githubAuth.getAccessToken()
+    else
+      @githubAuth.authorize =>
+        @token = @githubAuth.getAccessToken()
+        console.log(@token)
+        @token
