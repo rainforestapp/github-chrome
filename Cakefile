@@ -10,6 +10,16 @@ JAVASCRIPTS_PATH    = path.join(ROOT_PATH, '/build')
 log = (data)->
   console.log data.toString().replace('\n','')
 
+runCmd = (cmd, args, exit_cb) ->
+  ps = spawn(cmd, args)
+  ps.stdout.on('data', log)
+  ps.stderr.on('data', log)
+  ps.on 'exit', (code)->
+    if code != 0
+      console.log 'failed'
+    else
+      exit_cb?()
+
 coffee_available = ->
   present = false
   process.env.PATH.split(':').forEach (value, index, array)->
@@ -27,38 +37,23 @@ if_coffee = (callback)->
 
 task 'build_haml', 'Build HAML Coffee templates', ->
   if_coffee -> 
-    ps = spawn("./node_modules/haml-coffee/bin/haml-coffee", ["-i", "views", "-o", "build/templates.js", "-b", "views"])
-    ps.stdout.on('data', log)
-    ps.stderr.on('data', log)
-    ps.on 'exit', (code)->
-      if code != 0
-        console.log 'failed'
+    runCmd("./node_modules/haml-coffee/bin/haml-coffee", ["-i", "views", "-o", "build/templates.js", "-b", "views"])
 
+task 'build_sass', "Compile SASS files", ->
+  runCmd("compass", ["compile", "--sass-dir", "assets/sass", "--css-dir", "build/css"])
 
 task 'build', 'Build extension code into build/', ->
   if_coffee -> 
-    ps = spawn("coffee", ["--output", JAVASCRIPTS_PATH,"--compile", COFFEESCRIPTS_PATH])
-    ps.stdout.on('data', log)
-    ps.stderr.on('data', log)
-    ps.on 'exit', (code)->
-      if code != 0
-        console.log 'failed'
-      else
-        invoke('build_haml')
+    runCmd("coffee", ["--output", JAVASCRIPTS_PATH,"--compile", COFFEESCRIPTS_PATH], ->
+      invoke('build_haml')
+      invoke('build_sass')
+    )
 
 task 'watch', 'Build extension code into build/', ->
   if_coffee -> 
-    ps = spawn "coffee", ["--output", JAVASCRIPTS_PATH,"--watch", COFFEESCRIPTS_PATH]
-    ps.stdout.on('data', log)
-    ps.stderr.on('data', log)
-    ps.on 'exit', (code)->
-      if code != 0
-        console.log 'failed'
-      console.log stdout
+    runCmd("coffee", ["--output", JAVASCRIPTS_PATH,"--watch", COFFEESCRIPTS_PATH])
+  runCmd("compass", ["watch", "--sass-dir", "assets/sass", "--css-dir", "build/css"])
 
 task 'test', ->
   if_coffee -> 
-    ps = spawn("mocha", ["--compilers", "coffee:coffee-script", "tests/"])
-
-    ps.stdout.on("data", log)
-    ps.stderr.on("data", log)
+    runCmd("mocha", ["--compilers", "coffee:coffee-script", "tests/"])
