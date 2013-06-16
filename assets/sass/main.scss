@@ -18,8 +18,6 @@ $base-font-size: 13px;
 $base-line-height: 24px;
 @include establish-baseline;
 
-// Colors
-
 // Includes
 @import "globals";
 @import "colors";

@@ -4,12 +4,17 @@
  * @author Fred Stevens-Smith
  * @copyright Cldrdr Inc. d/b/a Rainforest, 2013
  */
-#github-chrome {
-  .repo {
-    @include box-sizing('border-box');
-    float: left;
-    width: 100%;
-    border-bottom: 1px solid $grey;
-    padding: 1em;
+.repo {
+  @include box-sizing('border-box');
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid $grey;
+  padding: 1em;
+
+  ul.meta {
+    @include adjust-font-size-to(11px, 1, 13px);
+    > li {
+      float: left;
+    }
   }
 }
