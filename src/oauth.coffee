@@ -4,8 +4,6 @@ githubAuth = new OAuth2("github",
   api_scope: "repo"
 )
 
-console.log 'xxx'
-
 githubAuth.authorize ->
   # Ready for action, can now make requests with
   accessToken = githubAuth.getAccessToken()
