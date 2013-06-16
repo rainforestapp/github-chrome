@@ -1,0 +1,26 @@
+/**
+ * Navigation Styles
+ * 
+ * @author Fred Stevens-Smith
+ * @copyright Cldrdr Inc. d/b/a Rainforest, 2013
+ */
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  border-top: 1px solid $grey;
+  @include box-shadow(0 0 4px tint($black, 20));
+
+  > li {
+    float: left;
+    padding: 0.5em 1em;
+    border-right: 1px solid $lgrey;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $lgrey;
+    }
+  }
+}
