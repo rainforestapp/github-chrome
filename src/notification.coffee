@@ -5,7 +5,7 @@
 # Create a simple text notification:
 # icon url - can be relative
 # notification title
-notification = webkitNotifications.createNotification("", "Hello!", "Lorem ipsum...") # notification body text
+notification = webkitNotifications.createNotification("/assets/notification_icon_48.png", "Hello!", "Lorem ipsum...") # notification body text
 
 # Or create an HTML notification:
 notification = webkitNotifications.createHTMLNotification("/notification.html") # html url - can be relative

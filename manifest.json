@@ -16,7 +16,8 @@
       "libs/backbone-min.js",
       "build/application.js",
       "build/hook.js",
-      "build/badge.js"
+      "build/badge.js",
+      "build/notification.js"
       ],
     "css": ["assets/css/main.css"]
     },
@@ -34,5 +35,8 @@
     "notifications",
     "https://github.com/login/oauth/access_token",
     "https://api.github.com/*"
-    ]
+    ],
+  "web_accessible_resources": [
+    "assets/notification_icon_48.png"
+  ]
 }
