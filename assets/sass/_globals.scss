@@ -1,8 +1,10 @@
 /**
- * Github Chrome extension stylez
- * 
- * Fat Controller
+ * Global Styles
  * 
  * @author Fred Stevens-Smith
  * @copyright Cldrdr Inc. d/b/a Rainforest, 2013
  */
+body {
+  font-family: $font-family;
+  width: 300px;
+}

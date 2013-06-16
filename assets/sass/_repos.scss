@@ -1,8 +1,11 @@
 /**
- * Github Chrome extension stylez
- * 
- * Fat Controller
+ * Repo styles
  * 
  * @author Fred Stevens-Smith
  * @copyright Cldrdr Inc. d/b/a Rainforest, 2013
  */
+.repo {
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid $grey;
+}
