@@ -1,0 +1,27 @@
+/**
+ * Github Icons
+ * Used with love & Open Source
+ * 
+ * @copyright Github
+ */
+
+@font-face {
+  font-family:github-octicons;
+  src:url(/assets.github.com/assets/primer/octicons/github-octicons-da61733e7f5853c453742a07bd0d60b429b63aa9.eot#iefix) format(embedded-opentype),url(/assets.github.com/assets/primer/octicons/github-octicons-6186aae41a0b0093627faf5f946ab0b6e1f7fd86.svg) format(svg),url(/assets.github.com/assets/primer/octicons/github-octicons-0d59da1e93f499faa169e4fac5044a7392c84a4f.woff) format(woff),url(/assets.github.com/assets/primer/octicons/github-octicons-3623b1628be821a669404ab55caf1341f5cd5eb1.ttf) format(truetype);
+  font-weight:400;
+  font-style:normal;
+}
+
+.octicon
+{
+  font:normal normal 16px github-octicons;
+  line-height:1;
+  display:inline-block;
+  text-decoration:none;
+  -webkit-font-smoothing:antialiased;
+}
+
+.octicon-issue-opened:before
+{
+  content:'\f026';
+}
