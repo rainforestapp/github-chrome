@@ -37,3 +37,4 @@ class @GithubChrome extends Backbone.View
       when 'settings'
         @oauthView = new OauthView
         @$el.html @oauthView.render().el
+

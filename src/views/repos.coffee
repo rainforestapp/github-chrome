@@ -10,6 +10,7 @@ class @ReposView extends Backbone.View
 
   render: =>
     @renderRepos()
+    @$("abbr.timeago").timeago()
     @
 
   renderRepos: ->
