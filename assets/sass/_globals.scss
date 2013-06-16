@@ -7,15 +7,21 @@
 html {
   width: 300px;
   height: 400px;
-  overflow: auto;
 }
 
 body {
   font-family: $font-family;
   width: 300px;
   height: 400px;
+}
+
+#main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 37px;
+  left: 0;
   overflow: auto;
-  padding-bottom: 37px;
 }
 
 a {
