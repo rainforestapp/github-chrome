@@ -7,5 +7,5 @@ githubAuth = new OAuth2("github",
 githubAuth.authorize ->
   # Ready for action, can now make requests with
   accessToken = githubAuth.getAccessToken()
-  console.log 'access token', accessToken
-  xhr.setRequestHeader('Authorization', 'OAuth ' + accessToken)
+  #xhr.setRequestHeader('Authorization', 'OAuth ' + accessToken)
+  document.getElementById('lulz').innerHTML = 'Authed: ' + accessToken
