@@ -1,11 +1,10 @@
 auth = new GithubAuth()
-auth.auth()
-
 sync = Backbone.sync
 # then override original sync function
 Backbone.sync = (method, model, options) ->
-  options.headers = { 'Authorization': "token " + auth.auth() }
-  sync(method, model, options)
+  auth.authorize (token) ->
+    options.headers = { 'Authorization': "token " + token }
+    sync(method, model, options)
 
 class @GithubChrome extends Backbone.View
 

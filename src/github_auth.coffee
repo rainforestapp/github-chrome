@@ -9,11 +9,6 @@ class @GithubAuth
   logout: ->
     @githubAuth.clearAccessToken()
 
-  auth: =>
-    if @githubAuth.hasAccessToken()? && !@githubAuth.isAccessTokenExpired()?
-      @token = @githubAuth.getAccessToken()
-    else
-      @githubAuth.authorize =>
-        @token = @githubAuth.getAccessToken()
-    console.log 'Github api token:', @token
-    @token
+  authorize: (callback) =>
+    @githubAuth.authorize =>
+      callback(@githubAuth.getAccessToken())

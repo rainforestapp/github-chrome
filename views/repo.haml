@@ -1,6 +1,6 @@
 .title
   %a{href: @model.get("html_url"), target: '_blank'}
-    = @model.get('name')
+    = @model.get('full_name')
 %ul.meta
   %li.issues
     %a{ href: @model.issuesUrl(), title: "#{@model.get('open_issues')} open issues" , target: '_blank'}
