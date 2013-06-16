@@ -15,7 +15,8 @@
       "libs/jquery-2.0.2.min.js",
       "libs/backbone-min.js",
       "build/application.js",
-      "build/hook.js"
+      "build/hook.js",
+      "build/badge.js"
       ],
     "css": ["assets/css/main.css"]
     },
