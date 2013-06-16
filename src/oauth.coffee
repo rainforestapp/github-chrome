@@ -4,10 +4,8 @@ githubAuth = new OAuth2("github",
   api_scope: "repo"
 )
 
-console.log githubAuth
-
 githubAuth.authorize ->
   # Ready for action, can now make requests with
-  accessToken = githubAuth.getAccessToken()
+  n = new Notice()
+  n.create('New token', githubAuth.getAccessToken())
   #xhr.setRequestHeader('Authorization', 'OAuth ' + accessToken)
-  document.getElementById('lulz').innerHTML = 'Authed: ' + accessToken
