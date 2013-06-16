@@ -1,5 +1,6 @@
 auth = new GithubAuth()
 auth.auth()
+
 sync = Backbone.sync
 # then override original sync function
 Backbone.sync = (method, model, options) ->
