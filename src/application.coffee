@@ -15,6 +15,8 @@ class @GithubChrome extends Backbone.View
     $('body').append @navView.render().el
 
   renderSection: (section) ->
+    @navView.highlight section
+
     switch section
       when 'repos'
         @reposView = new ReposView

@@ -6,3 +6,4 @@ class @RepoView extends Backbone.View
   render: ->
     @$el.html HAML['repo']()
     @
+
