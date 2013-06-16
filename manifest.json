@@ -9,7 +9,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://github.com/robots.txt*"],
+      "matches": [
+        "https://github.com/robots.txt*"
+        ],
       "js": ["libs/oauth2/oauth2_inject.js"],
       "run_at": "document_start"
     }
@@ -28,10 +30,10 @@
     "assets/images/octocat_16.png",
     "assets/images/octocat_48.png",
     "assets/images/octocat_128.png",
-    "assets/fonts/gtihub-icons.eot",
-    "assets/fonts/gtihub-icons.svg",
-    "assets/fonts/gtihub-icons.ttf",
-    "assets/fonts/gtihub-icons.woff"
+    "assets/fonts/github-icons.eot",
+    "assets/fonts/github-icons.svg",
+    "assets/fonts/github-icons.ttf",
+    "assets/fonts/github-icons.woff"
   ],
   "icons": { 
     "16": "assets/images/octocat_16.png",
