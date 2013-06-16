@@ -36,8 +36,14 @@ class @GithubChrome extends Backbone.View
       when 'repos'
         @reposView = new ReposView
           collection: new RepoCollection
-        @$el.html @reposView.render().el
+        @$el.html @reposView.el
         @reposView.collection.fetch()
+
+      when 'issues'
+        @issuesView = new IssuesView
+          collection: new IssuesCollection
+        @$el.html @issuesView.el
+        @issuesView.collection.fetch()
 
       when 'settings'
         @oauthView = new OauthView
