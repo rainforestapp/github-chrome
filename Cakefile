@@ -37,7 +37,8 @@ if_coffee = (callback)->
 
 task 'build_haml', 'Build HAML Coffee templates', ->
   if_coffee -> 
-    runCmd("./node_modules/haml-coffee/bin/haml-coffee", ["-i", "views", "-o", "build/templates.js", "-b", "views"])
+    runCmd(path.join(path.dirname(require.resolve("haml-coffee")), "bin/haml-coffee"), 
+      ["-i", "views", "-o", "build/templates.js", "-b", "views"])
 
 task 'build_sass', "Compile SASS files", ->
   runCmd("compass", ["compile", "--sass-dir", "assets/sass", "--css-dir", "build/css"])
