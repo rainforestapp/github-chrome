@@ -5,7 +5,8 @@
   "description": "A chrome extension for github",
   "browser_action": {
     "default_title": "Github",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": "assets/images/octocat_16.png"
   },
   "content_scripts": [
     {
