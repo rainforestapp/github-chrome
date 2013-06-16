@@ -30,5 +30,10 @@
   "background": {
     "scripts" : []
   },
-  "permissions": ["storage", "https://github.com/login/oauth/access_token", "https://api.github.com/*"]
+  "permissions": [
+    "storage",
+    "notifications",
+    "https://github.com/login/oauth/access_token",
+    "https://api.github.com/*"
+    ]
 }
