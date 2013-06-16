@@ -24,6 +24,14 @@
     "https://api.github.com/*"
     ],
   "web_accessible_resources": [
-    "assets/notification_icon_48.png"
-  ]
+    "assets/notification_icon_48.png",
+    "assets/images/octocat_16.png",
+    "assets/images/octocat_48.png",
+    "assets/images/octocat_128.png"
+  ],
+  "icons": { 
+    "16": "assets/images/octocat_16.png",
+    "48": "assets/images/octocat_48.png",
+    "128": "assets/images/octocat_128.png"
+ }
 }
