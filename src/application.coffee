@@ -5,11 +5,21 @@ class @GithubChrome extends Backbone.View
     @badge = new Badge(1)
 
   render: ->
+    @renderNav()
+    @renderSection('repos')
+    @
+
+  renderNav: ->
     @navView = new NavView
-    $('#main').append @navView.render().el
+    @.listenTo @navView, 'change:section', @renderSection
+    $('body').append @navView.render().el
 
-    @oauthView = new OauthView
-    @$el.append @oauthView.render().el
+  renderSection: (section) ->
+    switch section
+      when 'repos'
+        @reposView = new ReposView
+        @$el.html @reposView.render().el
 
-    @reposView = new ReposView
-    @$el.append @reposView.render().el
+      when 'settings'
+        @oauthView = new OauthView
+        @$el.html @oauthView.render().el
