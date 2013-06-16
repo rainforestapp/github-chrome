@@ -4,9 +4,9 @@ class @GithubChrome extends Backbone.View
     @render()
     @badge = new Badge(1)
 
-    chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
-    chrome.alarms.onAlarm.addListener =>
-      @badge.addIssues(1)
+    #chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
+    #chrome.alarms.onAlarm.addListener =>
+    #  @badge.addIssues(1)
 
   render: ->
     @renderNav()
