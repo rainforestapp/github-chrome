@@ -17,7 +17,7 @@
       "build/application.js",
       "build/hook.js"
       ],
-    "css": ["style/main.css"]
+    "css": ["assets/css/main.css"]
     }
   ],
   "background": {
