@@ -17,3 +17,8 @@ body {
   overflow: auto;
   padding-bottom: 37px;
 }
+
+a {
+  color: shade($blue, 20);
+  text-decoration: inherit;
+}

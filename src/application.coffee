@@ -11,13 +11,15 @@ class @GithubChrome extends Backbone.View
 
   renderNav: ->
     @navView = new NavView
-    $('#main').append @navView.render().el
+    @.listenTo @navView, 'change:section', @renderSection
+    $('body').append @navView.render().el
 
   renderSection: (section) ->
     switch section
       when 'repos'
-        # @oauthView = new OauthView
-        # @$el.append @oauthView.render().el
-
         @reposView = new ReposView
-        @$el.append @reposView.render().el
+        @$el.html @reposView.render().el
+
+      when 'settings'
+        @oauthView = new OauthView
+        @$el.html @oauthView.render().el

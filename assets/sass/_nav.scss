@@ -22,5 +22,14 @@
       cursor: pointer;
       background-color: $lgrey;
     }
+
+    &:last-of-type {
+      border-right: none;
+    }
+
+    &.settings {
+      float: right;
+      border-left: 1px solid $lgrey;
+    }
   }
 }
