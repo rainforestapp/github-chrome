@@ -3,4 +3,4 @@ class @GithubChrome extends Backbone.View
     @render()
 
   render: ->
-    @$el.append("<div>Hello Backbone</div>")
+    @$el.append(HAML['index']())

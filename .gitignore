@@ -3,3 +3,4 @@ build/*
 *.DS_Store
 .sass_cache/*
 .DS_Store
+node_modules

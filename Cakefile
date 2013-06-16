@@ -1,6 +1,7 @@
 fs    = require 'fs'
 path  = require 'path'
 spawn = require('child_process').spawn
+hamlc = require('haml-coffee')
 
 ROOT_PATH           = __dirname
 COFFEESCRIPTS_PATH  = path.join(ROOT_PATH, '/src')
@@ -24,6 +25,16 @@ if_coffee = (callback)->
   else
     callback()
 
+task 'build_haml', 'Build HAML Coffee templates', ->
+  if_coffee -> 
+    ps = spawn("./node_modules/haml-coffee/bin/haml-coffee", ["-i", "views", "-o", "build/templates.js", "-b", "views"])
+    ps.stdout.on('data', log)
+    ps.stderr.on('data', log)
+    ps.on 'exit', (code)->
+      if code != 0
+        console.log 'failed'
+
+
 task 'build', 'Build extension code into build/', ->
   if_coffee -> 
     ps = spawn("coffee", ["--output", JAVASCRIPTS_PATH,"--compile", COFFEESCRIPTS_PATH])
@@ -32,6 +43,8 @@ task 'build', 'Build extension code into build/', ->
     ps.on 'exit', (code)->
       if code != 0
         console.log 'failed'
+      else
+        invoke('build_haml')
 
 task 'watch', 'Build extension code into build/', ->
   if_coffee -> 
