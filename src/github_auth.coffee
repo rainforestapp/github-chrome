@@ -1,5 +1,5 @@
 class @GithubAuth
-  contructor: ->
+  constructor: ->
     @githubAuth = new OAuth2("github",
       client_id: "a61d88bc98e28b1c1923"
       client_secret: "aba706c11f6852a38b4c6116de078eae6dfdf852"
@@ -7,6 +7,9 @@ class @GithubAuth
     )
 
   auth: ->
-    @githubAuth.authorize ->
-      n = new Notice()
-      n.create('New token', @githubAuth.getAccessToken())
+    # n = new Notice()
+    @githubAuth.authorize =>
+      @token = @githubAuth.getAccessToken()
+      # n.create('New token', @token)
+      console.log(@token)
+      @token
