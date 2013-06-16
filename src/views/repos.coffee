@@ -1,7 +1,7 @@
 class @ReposView extends Backbone.View
 
   render: ->
-    @$el.html '      <ol class="repo-list">
+    @$el.html '<ol class="repo-list">
         <li class="repo">
           <div class="title">Some repo name</div>
           <ul class="meta">

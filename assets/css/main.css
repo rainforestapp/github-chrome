@@ -89,7 +89,7 @@ html {
  * @copyright Cldrdr Inc. d/b/a Rainforest, 2013
  */
 /* line 7, ../sass/_globals.scss */
-body {
+body#github-chrome {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   width: 300px;
 }
@@ -106,9 +106,13 @@ body {
  * @author Fred Stevens-Smith
  * @copyright Cldrdr Inc. d/b/a Rainforest, 2013
  */
-/* line 7, ../sass/_repos.scss */
-.repo {
+/* line 8, ../sass/_repos.scss */
+#github-chrome .repo {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   float: left;
   width: 100%;
   border-bottom: 1px solid #eeeeee;
+  padding: 1em;
 }
