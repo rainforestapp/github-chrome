@@ -10,5 +10,5 @@ class @NavView extends Backbone.View
     @
 
   switchSection: (e) ->
-    console.log section = $(e.currentTarget).attr('class')
+    section = $(e.currentTarget).attr('class')
     @.trigger 'change:section', section
