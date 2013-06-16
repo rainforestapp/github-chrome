@@ -1,0 +1,25 @@
+/**
+ * Github Chrome extension stylez
+ * 
+ * Fat Controller
+ * 
+ * @author Fred Stevens-Smith
+ * @copyright Cldrdr Inc. d/b/a Rainforest, 2013
+ */
+@import "compass/reset";
+@import "compass/typography";
+
+// Set global font family in variable for ease of use
+$font-family: 'Helvetica Neue', Helvetica, sans-serif;
+
+// Create a sane, standardised baseline
+$base-font-size: 13px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+// Colors
+
+
+body {
+  font-family: $font-family;
+}
