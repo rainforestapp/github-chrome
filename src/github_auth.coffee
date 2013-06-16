@@ -9,11 +9,11 @@ class @GithubAuth
   logout: ->
     @githubAuth.clearAccessToken()
 
-  auth: ->
+  auth: =>
     if @githubAuth.hasAccessToken()? && !@githubAuth.isAccessTokenExpired()?
-      @githubAuth.getAccessToken()
+      @token = @githubAuth.getAccessToken()
     else
       @githubAuth.authorize =>
         @token = @githubAuth.getAccessToken()
         console.log(@token)
-        @token
+    @token
