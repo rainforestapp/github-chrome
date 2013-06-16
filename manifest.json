@@ -21,6 +21,7 @@
     "scripts" : []
   },
   "permissions": [
+    "alarms",
     "storage",
     "notifications",
     "https://github.com/login/oauth/access_token",
