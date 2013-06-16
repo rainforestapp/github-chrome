@@ -4,7 +4,16 @@
  * @author Fred Stevens-Smith
  * @copyright Cldrdr Inc. d/b/a Rainforest, 2013
  */
+html {
+  width: 300px;
+  height: 400px;
+  overflow: auto;
+}
+
 body {
   font-family: $font-family;
   width: 300px;
+  height: 400px;
+  overflow: auto;
+  padding-bottom: 37px;
 }

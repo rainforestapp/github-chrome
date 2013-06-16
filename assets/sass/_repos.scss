@@ -17,4 +17,8 @@
       float: left;
     }
   }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 }

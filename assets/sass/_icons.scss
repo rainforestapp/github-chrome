@@ -1,0 +1,27 @@
+/**
+ * Github Icons
+ * Used with love & Open Source
+ * 
+ * @copyright Github
+ */
+
+@font-face {
+  font-family:github-octicons;
+  src:url("/assets/fonts/github-icons.eot#iefix") format(embedded-opentype),url("/assets/fonts/github-icons.svg") format(svg),url("/assets/fonts/github-icons.woff") format(woff),url("/assets/fonts/github-icons.ttf") format(truetype);
+  font-weight:400;
+  font-style:normal;
+}
+
+.octicon
+{
+  font:normal normal 16px github-octicons;
+  line-height:1;
+  display:inline-block;
+  text-decoration:none;
+  -webkit-font-smoothing:antialiased;
+}
+
+.octicon-issue-opened:before
+{
+  content:'\f026';
+}
