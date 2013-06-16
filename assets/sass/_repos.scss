@@ -9,16 +9,48 @@
   float: left;
   width: 100%;
   border-bottom: 1px solid $grey;
-  padding: 1em;
+  padding: 0.5em 1em;
+
+  .title {
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 
   ul.meta {
     @include adjust-font-size-to(11px, 1, 13px);
     > li {
+
+      margin-left: 2em;
       float: left;
+      color: $dgrey;
+
       a {
         display: block;
         width: 100%;
         height: 100%;
+        border-bottom: 1px dotted $white;
+
+        &:hover {
+          color: $black;
+          // border-bottom-color: $dgrey;
+          text-decoration: underline;
+        }
+      }
+
+      .octicon {
+        font-size: 15px;
+        margin-right: 3px;
+      }
+
+      &:first-of-type {
+        margin-left: 0;
       }
     }
   }

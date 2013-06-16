@@ -18,7 +18,12 @@
     padding: 0.5em 1em;
     border-right: 1px solid $lgrey;
 
-    &:hover {
+    .octicon {
+      font-size: 14px;
+      margin-right: 3px;
+    }
+
+    &:hover, &.highlight {
       cursor: pointer;
       background-color: $lgrey;
     }
@@ -30,6 +35,7 @@
     &.settings {
       float: right;
       border-left: 1px solid $lgrey;
+      .octicon { margin-right: 0; }
     }
   }
 }

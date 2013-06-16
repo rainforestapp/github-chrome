@@ -5,14 +5,16 @@
   %li.issues
     %a{ href: '#', title: 'Issues' }
       %span.octicon.octicon-issue-opened
-      = @model.get('open_issues')
-      - # %span.important 3
+      %span.content 
+        = @model.get('open_issues')
   %li.prs
     %a{ href: '#', title: 'Pull Requests' }
       %span.octicon.octicon-git-pull-request
-      2
+      %span.content 
+        2 PRs
   %li.updated
     %a{ href: '#', title: 'Last Updated' }
       %span.octicon.octicon-history
-      %abbr.timeago{ title: @model.get("pushed_at") }
-        = @model.get("pushed_at")
+      %span.content 
+        %abbr.timeago{ title: @model.get("pushed_at") }
+          = @model.get("pushed_at")
