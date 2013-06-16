@@ -1,0 +1,21 @@
+{
+  "name": "Github Chrome",
+  "version": "0.0.1",
+  "manifest_version":2,
+  "description": "A chrome extension for github",
+  "browser_action": {
+    "default_title": "Github",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["build/hook.js"],
+    "css": ["style/main.css"]
+    }
+  ],
+  "background": {
+    "scripts" : []
+  },
+  "permissions": ["storage"]
+}
