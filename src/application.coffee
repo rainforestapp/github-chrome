@@ -16,11 +16,12 @@ class @GithubChrome extends Backbone.View
     #chrome.alarms.onAlarm.addListener =>
     #  @badge.addIssues(1)
     @user = new User
-    @user.fetch()
+    @user.fetch
+      success: => @renderSection('repos')
+      error: => @renderErrors
 
   render: ->
     @renderNav()
-    @renderSection('repos')
     @
 
   renderNav: ->
@@ -40,3 +41,6 @@ class @GithubChrome extends Backbone.View
         @oauthView = new OauthView
         @$el.html @oauthView.render().el
 
+  renderErrors: ->
+    @$el.html "Oops. Something when wrong. Please try again."
+    
