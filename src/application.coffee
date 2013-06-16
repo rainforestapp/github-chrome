@@ -41,7 +41,7 @@ class @GithubChrome extends Backbone.View
 
       when 'issues'
         @issuesView = new IssuesView
-          collection: new IssuesCollection
+          collection: new IssueCollection
         @$el.html @issuesView.el
         @issuesView.collection.fetch()
 
