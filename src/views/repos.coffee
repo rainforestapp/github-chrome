@@ -4,13 +4,11 @@ class @ReposView extends Backbone.View
   tagName: 'ol'
 
   initialize: ->
-    @collection = new Repositories
-    for i in [0...10] by 1
-      repo = new Repository(REPO_ATTRS)
-      repo.id = i
-      @collection.add(repo)
+    @collection = new RepoCollection
+    @collection.fetch
+      success: @render
 
-  render: ->
+  render: =>
     @renderRepos()
     @
 
