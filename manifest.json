@@ -10,7 +10,13 @@
   "content_scripts": [
     {
     "matches": ["http://*/*", "https://*/*"],
-    "js": ["build/hook.js"],
+    "js": [
+      "libs/underscore-min.js",
+      "libs/jquery-2.0.2.min.js",
+      "libs/backbone-min.js",
+      "build/application.js",
+      "build/hook.js"
+      ],
     "css": ["style/main.css"]
     },
     {
