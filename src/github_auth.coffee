@@ -15,5 +15,4 @@ class @GithubAuth
     else
       @githubAuth.authorize =>
         @token = @githubAuth.getAccessToken()
-        console.log(@token)
     @token
