@@ -6,7 +6,7 @@
     %a{ href: '#', title: 'Issues' }
       %span.octicon.octicon-issue-opened
       %span.content 
-        13 issues
+        = @model.get('open_issues')
   %li.prs
     %a{ href: '#', title: 'Pull Requests' }
       %span.octicon.octicon-git-pull-request
@@ -16,4 +16,5 @@
     %a{ href: '#', title: 'Last Updated' }
       %span.octicon.octicon-history
       %span.content 
-        2 months ago
+        %abbr.timeago{ title: @model.get("pushed_at") }
+          = @model.get("pushed_at")
