@@ -3,17 +3,17 @@
     = @model.get('name')
 %ul.meta
   %li.issues
-    %a{ href: '#', title: 'Issues' }
+    %a{ href: @model.issuesUrl(), title: 'Issues' , target: '_blank'}
       %span.octicon.octicon-issue-opened
       %span.content 
         = @model.get('open_issues')
   %li.prs
-    %a{ href: '#', title: 'Pull Requests' }
+    %a{ href: @model.pullRequestsUrl(), title: 'Pull Requests' , target: '_blank'}
       %span.octicon.octicon-git-pull-request
       %span.content 
         2 PRs
   %li.updated
-    %a{ href: '#', title: 'Last Updated' }
+    %a{ href: @model.commitsUrl(), title: 'Last Updated' , target: '_blank'}
       %span.octicon.octicon-history
       %span.content 
         %abbr.timeago{ title: @model.get("pushed_at") }
