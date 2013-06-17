@@ -1,6 +1,6 @@
 {
   "name": "Github Chrome",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "manifest_version":2,
   "description": "A Chrome extension for Github, allowing quick viewing and navigation to your repos, viewing your issues and creating new issues!",
   "browser_action": {
