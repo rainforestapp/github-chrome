@@ -1,6 +1,6 @@
 %form
   %section
-    %select
+    %select{name: 'repository'}
       - for repository in @repositories.models
         %option{value: repository.get('full_name')}
           = repository.get('full_name')
@@ -10,8 +10,8 @@
     %input{name: "title", type: "text", value: ""}
 
   %section
-    %label{for: "comment"} Comment:
-    %textarea{name: "comment", value: ""}
+    %label{for: "body"} Comment:
+    %textarea{name: "body", value: ""}
 
   %section
     %input.submit{type: "submit", value: "Create Issue"}

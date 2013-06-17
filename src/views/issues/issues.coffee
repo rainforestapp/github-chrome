@@ -8,8 +8,11 @@ class @IssuesView extends Backbone.View
     @.listenTo @collection, 'sync', @render
 
   render: ->
-    @renderIssues()
-    @$("abbr.timeago").timeago()
+    if @collection.isEmpty()
+      @$el.html('<div class="no-issue">No issues are currently assigned to you.</div>')
+    else
+      @renderIssues()
+      @$("abbr.timeago").timeago()
     @
 
   renderIssues: ->
