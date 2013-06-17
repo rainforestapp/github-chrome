@@ -1,7 +1,7 @@
 .message
 
 %form
-  %section
+  %section.repo-select
     %select{name: 'repository'}
       - for repository in @repositories.models
         - full_name = repository.get('full_name')

@@ -28,3 +28,30 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+
+
+@mixin focused {
+  outline: 0;
+  outline: thin dotted \9;
+  @include box-shadow(0 0 5px rgba(0, 0, 0, 0.3) !important);
+  border: 1px solid $bblue !important;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    @include focused;
+}

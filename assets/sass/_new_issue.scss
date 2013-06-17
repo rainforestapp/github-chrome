@@ -9,9 +9,14 @@
   @include adjust-font-size-to(14px, 1, 13px);
 
   form > section {
-    border-bottom: 1px solid $grey;
     padding: 1em;
+    padding-bottom: 0;
     @include box-sizing('border-box');
+
+    &.repo-select {
+      padding-bottom: 1em;
+      border-bottom: 1px solid $grey;
+    }
   }
 
   select {
@@ -47,6 +52,10 @@
     &:active {
       border: 1px solid $blue;
     }
+  }
+
+  textarea {
+    height: 8em;
   }
 
   input.submit {
