@@ -1,0 +1,16 @@
+%form
+  %select
+    - for repository in @repositories.models
+      %option{value: repository.get('full_name')}
+        = repository.get('full_name')
+
+  %label{for: "title"} Title
+  %input{name: "title", type: "text", value: ""}
+  %br/
+
+  %label{for: "comment"} Comment
+  %textarea{name: "comment", value: ""}
+
+  %br/
+  %input{type: "submit", value: "New Issue"}
+    

@@ -9,6 +9,7 @@ Backbone.sync = (method, model, options) ->
 class @GithubChrome extends Backbone.View
 
   initialize: (@options) ->
+    @repositories = new RepoCollection
     @render()
     @badge = new Badge(1)
 
@@ -34,10 +35,11 @@ class @GithubChrome extends Backbone.View
 
     switch section
       when 'repos'
+        @repositories.set([])
         @reposView = new ReposView
-          collection: new RepoCollection
+          collection: @repositories
         @$el.html @reposView.render().el
-        @reposView.collection.fetch(reset: true)
+        @repositories.fetch(reset: true)
 
         @orgs = new OrgCollection
         @orgs.fetch
@@ -53,6 +55,11 @@ class @GithubChrome extends Backbone.View
           collection: new IssueCollection
         @$el.html @issuesView.el
         @issuesView.collection.fetch()
+
+      when 'new-issue'
+        @newIssueView = new NewIssueView(repositories: @repositories)
+        @$el.html @newIssueView.el
+        @newIssueView.render()
 
       when 'settings'
         @oauthView = new OauthView
