@@ -17,15 +17,14 @@
     overflow: auto;
 
     &:hover {
-      text-decoration: underline;
+      background-color: $lblue;
     }
   }
 
   .timeago, .repo-name {
-    float: left;
+    display: inline-block;
     @include adjust-font-size-to(11px, 1, 12px);
     color: $dgrey;
-    margin-right: 0.5em;
   }
 
   &:last-of-type {

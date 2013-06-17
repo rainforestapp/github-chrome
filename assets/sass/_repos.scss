@@ -54,10 +54,6 @@
     }
   }
 
-  &:hover {
-    background-color: tint($lblue, 50);
-  }
-
   &:last-of-type {
     border-bottom: none;
   }
