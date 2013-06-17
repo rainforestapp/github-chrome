@@ -8,6 +8,7 @@
     "default_popup": "popup.html",
     "default_icon": "assets/images/octocat_16.png"
   },
+  "options_page": "options.html",
   "content_scripts": [
     {
       "matches": [

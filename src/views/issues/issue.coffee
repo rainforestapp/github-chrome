@@ -4,8 +4,8 @@ class @IssueView extends Backbone.View
   tagName: 'li'
 
   initialize: (@options) ->
-    @model = @options.model
+    console.log @model = @options.model
 
   render: ->
-    @$el.html HAML['issue'](model: model)
+    @$el.html HAML['issue'](model: @model)
     @

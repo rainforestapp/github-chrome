@@ -9,6 +9,7 @@ class @IssuesView extends Backbone.View
 
   render: ->
     @renderIssues()
+    @$("abbr.timeago").timeago()
     @
 
   renderIssues: ->

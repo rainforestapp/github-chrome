@@ -12,10 +12,12 @@ class @GithubChrome extends Backbone.View
     @repositories = new RepoCollection
     @render()
     @badge = new Badge(1)
+    @storage = chrome.storage.local
 
-    #chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
-    #chrome.alarms.onAlarm.addListener =>
-    #  @badge.addIssues(1)
+    chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
+    chrome.alarms.onAlarm.addListener =>
+      @badge.addIssues(1)
+
     @user = new User
     @user.fetch
       success: => @renderSection('repos')
@@ -45,7 +47,11 @@ class @GithubChrome extends Backbone.View
         @orgs.fetch
           success: =>
             for url in @orgs.pluck('repos_url')
-              collection = new RepoCollection(url: url, type: 'member')
+              collection = new RepoCollection
+                  url: url
+                  type: (localStorage['repo_type'] || 'member')
+                  sort_by: (localStorage['repo_sortby'] || 'pushed')
+                  sort_order: (localStorage['repo_order'] || 'desc')
               collection.fetch
                 success: (coll)=>
                   @reposView.collection.add(coll.models)
@@ -62,8 +68,8 @@ class @GithubChrome extends Backbone.View
         @newIssueView.render()
 
       when 'settings'
-        @oauthView = new OauthView
-        @$el.html @oauthView.render().el
+        @settingsView = new SettingsView
+        @$el.html @settingsView.render().el
 
   renderErrors: ->
     @$el.html "Oops. Something when wrong. Please try again."
