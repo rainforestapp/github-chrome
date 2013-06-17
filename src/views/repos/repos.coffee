@@ -8,6 +8,7 @@ class @ReposView extends Backbone.View
     @collection = @options.collection
     @.listenTo @collection, 'add reset sync', @render
     @.listenTo @collection, 'all-done', =>
+      console.log 'all done'
       for v in @repoViews
         v.renderPullRequests()
 
