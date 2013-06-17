@@ -5,7 +5,6 @@ class @RepoView extends Backbone.View
 
   render: ->
     @$el.html HAML['repo'](model: @model)
-    @renderPullRequests()
     @
 
   renderPullRequests: =>

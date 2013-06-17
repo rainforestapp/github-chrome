@@ -10,5 +10,6 @@ class @RepoCollection extends Backbone.Collection
     @_url = options.url
     @_url ||= "https://api.github.com/user/repos"
     @_url += "?type=#{options.type}&sort=#{options.sort_by}"
+    @org = options.org
 
     console.log @_url

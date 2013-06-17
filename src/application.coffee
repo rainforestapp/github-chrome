@@ -41,20 +41,29 @@ class @GithubChrome extends Backbone.View
         @reposView = new ReposView
           collection: @repositories
         @$el.html @reposView.render().el
-        @repositories.fetch(reset: true)
+        @repositories.fetch
+          reset: true
+          error: @renderErrors
 
         @orgs = new OrgCollection
         @orgs.fetch
-          success: =>
-            for url in @orgs.pluck('repos_url')
+          success: (orgs) =>
+            todo = orgs.models
+            for org in @orgs.models
+              url = org.get('repos_url')
               collection = new RepoCollection
                   url: url
                   type: (localStorage['repo_type'] || 'member')
                   sort_by: (localStorage['repo_sortby'] || 'pushed')
                   sort_order: (localStorage['repo_order'] || 'desc')
+                  org: org
               collection.fetch
                 success: (coll)=>
+                  org = coll.org
+                  todo.splice(todo.indexOf(org), 1)
+                  console.log(todo)
                   @reposView.collection.add(coll.models)
+                  @reposView.trigger("all-done") if todo.length == 0
 
       when 'issues'
         @issuesCollection = new IssueCollection
