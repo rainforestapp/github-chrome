@@ -34,7 +34,7 @@ check_auth = ->
 
   if gh.is_logged_in()?
     token = gh.authorize()
-    $('#authorzied').html("You are authorzied with OAuth2.")
+    $('#authorzied').html("You are authorized with OAuth2.")
     $('#gh-logout').show().click ->
       gh.logout()
       if gh.is_logged_in()?
