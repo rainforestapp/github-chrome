@@ -1,1 +1,1 @@
-class @Issue extends Backbone.Model
+class @IssueModel extends Backbone.Model

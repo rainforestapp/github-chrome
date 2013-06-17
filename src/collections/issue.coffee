@@ -1,3 +1,3 @@
 class @IssueCollection extends Backbone.Collection
-  model: Issue
-  url: "https://api.github.com/issues"
+  model: IssueModel
+  url: "https://api.github.com/user/issues"

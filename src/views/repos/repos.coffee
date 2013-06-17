@@ -5,9 +5,10 @@ class @ReposView extends Backbone.View
 
   initialize: (@options) ->
     @collection = @options.collection
-    @.listenTo @collection, 'sync', @render
+    @.listenTo @collection, 'add reset sync', @render
 
   render: =>
+    @$el.html('')
     @renderRepos()
     @$("abbr.timeago").timeago()
     @
