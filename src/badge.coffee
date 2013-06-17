@@ -1,4 +1,8 @@
 class @Badge
+  setIssues: (count)->
+    @count = count
+    @render()
+
   addIssues: (count)->
     @count += count
     @render()
