@@ -18,6 +18,7 @@
       "run_at": "document_start"
     }
   ],
+  "homepage_url": "https://github.com/rainforestapp/github-chrome",
   "background": {
     "scripts" : []
   },
