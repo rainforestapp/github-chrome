@@ -3,5 +3,4 @@ class @PullRequestsCollection extends Backbone.Collection
     @repo = repo
 
   model: PullRequest
-  url: -> "https://api.github.com/repos/#{@repo.get('full_name')}/pulls"
-
+  url: -> ['https://api.github.com/repos', @repo.get('full_name'), "pulls"].join("/")

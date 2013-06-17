@@ -11,10 +11,12 @@ class @GithubChrome extends Backbone.View
   initialize: (@options) ->
     @render()
     @badge = new Badge(1)
+    @storage = chrome.storage.local
 
-    #chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
-    #chrome.alarms.onAlarm.addListener =>
-    #  @badge.addIssues(1)
+    chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
+    chrome.alarms.onAlarm.addListener =>
+      @badge.addIssues(1)
+
     @user = new User
     @user.fetch
       success: => @renderSection('repos')
@@ -51,4 +53,4 @@ class @GithubChrome extends Backbone.View
 
   renderErrors: ->
     @$el.html "Oops. Something when wrong. Please try again."
-    
+
