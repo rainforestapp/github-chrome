@@ -1,4 +1,7 @@
 class @NewIssueView extends Backbone.View
+
+  className: 'new-issue'
+
   events:
     "submit form" : "onSubmit"
 
