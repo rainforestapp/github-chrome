@@ -61,8 +61,8 @@ class @GithubChrome extends Backbone.View
         @issuesView.collection.fetch()
 
       when 'settings'
-        @oauthView = new OauthView
-        @$el.html @oauthView.render().el
+        @settingsView = new SettingsView
+        @$el.html @settingsView.render().el
 
   renderErrors: ->
     @$el.html "Oops. Something when wrong. Please try again."
