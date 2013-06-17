@@ -68,10 +68,9 @@ class @GithubChrome extends Backbone.View
                 success: (coll)=>
                   org = coll.org
                   todo.splice(todo.indexOf(org), 1)
-                  console.log(todo)
                   @reposView.collection.add(coll.models, silent: true)
                   @reposView.collection.trigger('add')
-                  @reposView.trigger("all-done") if todo.length == 0
+                  @reposView.collection.trigger("all-done") if todo.length == 0
 
       when 'issues'
         @issuesCollection = new IssueCollection

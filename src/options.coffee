@@ -32,8 +32,6 @@ restore_options = ->
 check_auth = ->
   gh = new GithubAuth()
 
-  console.log gh.is_logged_in()
-
   if gh.is_logged_in()?
     token = gh.authorize()
     $('#authorzied').html("You are authorzied with OAuth2.")
