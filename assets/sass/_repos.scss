@@ -19,6 +19,7 @@
 
       &:hover {
         text-decoration: underline;
+        color: $blue;
       }
     }
   }
@@ -38,7 +39,7 @@
         border-bottom: 1px dotted $white;
 
         &:hover {
-          color: $black;
+          color: $blue;
           text-decoration: underline;
         }
       }

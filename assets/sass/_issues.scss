@@ -17,7 +17,8 @@
     overflow: auto;
 
     &:hover {
-      background-color: $lblue;
+      color: $blue;
+      text-decoration: underline;
     }
   }
 

@@ -48,10 +48,6 @@
     padding: 0.5em;
     @include box-sizing('border-box');
     font-family: $font-family;
-
-    &:active {
-      border: 1px solid $blue;
-    }
   }
 
   textarea {
@@ -60,6 +56,7 @@
 
   input.submit {
     @include border-radius(5px);
+    -webkit-font-smoothing: antialiased;
     background-color: $blue;
     color: $white;
     font-weight: bold;
@@ -68,7 +65,7 @@
     padding: 0.25em 1em;
 
     &:hover {
-      @include box-shadow(0 2px 5px $dgrey);
+      @include box-shadow(0 1px 2px $dgrey);
       cursor: pointer;
     }
   }
