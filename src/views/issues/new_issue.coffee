@@ -14,10 +14,11 @@ class @NewIssueView extends Backbone.View
   onSubmit: (e) ->
     e.preventDefault()
     name = @$("[name=repository]").val()
+    localStorage['new_issue_last_repo'] = name
     repository = @repositories.find (r) -> r.get('full_name') == name
     model = new IssueModel({
       body: @$("[name=body]").val()
       title: @$("[name=title]").val()
     }, {repository: repository})
     model.save()
-     
+
