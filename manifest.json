@@ -2,7 +2,7 @@
   "name": "Github Chrome",
   "version": "0.0.2",
   "manifest_version":2,
-  "description": "A chrome extension for Github, allowing quick viewing and navigation to your repos, viewing and creating new issues! Uses OAuth2.",
+  "description": "A Chrome extension for Github, allowing quick viewing and navigation to your repos, viewing issues assigned to you and creating new issues! Uses OAuth2.",
   "browser_action": {
     "default_title": "Github",
     "default_popup": "popup.html",
