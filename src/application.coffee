@@ -45,7 +45,11 @@ class @GithubChrome extends Backbone.View
         @orgs.fetch
           success: =>
             for url in @orgs.pluck('repos_url')
-              collection = new RepoCollection(url: url, type: 'member')
+              collection = new RepoCollection
+                  url: url
+                  type: (localStorage['repo_type'] || 'member')
+                  sort_by: (localStorage['repo_sortby'] || 'pushed')
+                  sort_order: (localStorage['repo_order'] || 'desc')
               collection.fetch
                 success: (coll)=>
                   @reposView.collection.add(coll.models)

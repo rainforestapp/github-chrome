@@ -6,6 +6,9 @@ class @GithubAuth
       api_scope: "user,repo"
     )
 
+  is_logged_in: ->
+    @githubAuth.hasAccessToken()
+
   logout: ->
     @githubAuth.clearAccessToken()
 

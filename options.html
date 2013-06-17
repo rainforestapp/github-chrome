@@ -1,0 +1,41 @@
+<html>
+<head><title>Github-Chrome Options</title></head>
+<body>
+
+  <h1>Github Chrome Settings</h1>
+
+  <p id="authorzied">Authorize with OAuth2</p>
+  <p id="gh-logout" style="display:none">Logout</p>
+
+  <fieldset>
+    <legend>Repository options</legend>
+    <p>
+      Repository types:
+      <select id="repo_type">
+        <option value="all">all</option>
+        <option value="owner">public</option>
+        <option value="private">private</option>
+        <option value="member">member</option>
+      </select>
+
+    <p>
+      Repository sort by:
+      <select id="repo_sortby">
+        <option value="created">created</option>
+        <option value="updated">updated</option>
+        <option value="pushed">pushed</option>
+        <option value="full_name">full repo name</option>
+      </select>
+
+  </fieldset>
+
+<br>
+<div id="status"></div>
+<button id="save">Save</button>
+</body>
+<script type="text/javascript" src="libs/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="libs/oauth2/oauth2.js"></script>
+<script src="/libs/underscore-min.js"></script>
+<script src="/build/github_auth.js"></script>
+<script src="/build/options.js"></script>
+</html>
