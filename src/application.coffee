@@ -11,7 +11,7 @@ class @GithubChrome extends Backbone.View
   initialize: (@options) ->
     @repositories = new RepoCollection
     @render()
-    @badge = new Badge(1)
+    @badge = new Badge()
     @storage = chrome.storage.local
 
     chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
@@ -57,10 +57,13 @@ class @GithubChrome extends Backbone.View
                   @reposView.collection.add(coll.models)
 
       when 'issues'
+        @issuesCollection = new IssueCollection
         @issuesView = new IssuesView
-          collection: new IssueCollection
+          collection: @issuesCollection
         @$el.html @issuesView.el
-        @issuesView.collection.fetch()
+        @issuesView.collection.fetch
+          success: (c) => @badge.setBadgeText(c.length)
+          error: @renderErrors
 
       when 'new-issue'
         @newIssueView = new NewIssueView(repositories: @repositories)

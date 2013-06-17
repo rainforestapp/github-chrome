@@ -1,9 +1,4 @@
 class @Badge
-
-  constructor: (count)->
-    @count = count
-    @render()
-
   addIssues: (count)->
     @count += count
     @render()
@@ -13,7 +8,7 @@ class @Badge
     @render()
 
   setBadgeText: (text)->
-    chrome.browserAction.setBadgeText({text: text})
+    chrome.browserAction.setBadgeText({text: "" + text})
 
   render: ->
     if @count > 0
