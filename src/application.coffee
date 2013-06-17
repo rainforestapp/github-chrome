@@ -36,8 +36,17 @@ class @GithubChrome extends Backbone.View
       when 'repos'
         @reposView = new ReposView
           collection: new RepoCollection
-        @$el.html @reposView.el
-        @reposView.collection.fetch()
+        @$el.html @reposView.render().el
+        @reposView.collection.fetch(reset: true)
+
+        @orgs = new OrgCollection
+        @orgs.fetch
+          success: =>
+            for url in @orgs.pluck('repos_url')
+              collection = new RepoCollection(url: url, type: 'member')
+              collection.fetch
+                success: (coll)=>
+                  @reposView.collection.add(coll.models)
 
       when 'issues'
         @issuesView = new IssuesView
@@ -51,4 +60,3 @@ class @GithubChrome extends Backbone.View
 
   renderErrors: ->
     @$el.html "Oops. Something when wrong. Please try again."
-    
