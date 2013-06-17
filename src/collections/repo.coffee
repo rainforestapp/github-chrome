@@ -3,7 +3,8 @@ class @RepoCollection extends Backbone.Collection
   url: -> @_url
 
   comparator: (repo) ->
-    new Date(repo.get('pushed_at'))
+    # Convert to a Unix timestamp and reverse order
+    -(new Date(repo.get('pushed_at')))
 
   initialize: (options = {}) ->
     type = options.type
