@@ -10,6 +10,7 @@ class @NewIssueView extends Backbone.View
 
   render: ->
     @$el.html(HAML['new_issue'](repositories: @repositories))
+    @$('select').select2()
 
   onSubmit: (e) ->
     e.preventDefault()
@@ -22,7 +23,7 @@ class @NewIssueView extends Backbone.View
     }, {repository: repository})
     model.save {},
       success: (model) => 
-        @$('.message').html("Issue <a href=\"#{model.get("html_url")}\" target=\"_blank\">##{model.get('number')}</a> was created!")
+        @$('.message').html("<span>Issue <a href=\"#{model.get("html_url")}\" target=\"_blank\">##{model.get('number')}</a> was created!</span>")
       error: =>
-        @$('.message').html("Failed to create issue :(")
+        @$('.message').html("<span>Failed to create issue :(</span>")
      
