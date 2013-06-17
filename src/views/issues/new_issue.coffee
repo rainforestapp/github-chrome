@@ -16,5 +16,9 @@ class @NewIssueView extends Backbone.View
       body: @$("[name=body]").val()
       title: @$("[name=title]").val()
     }, {repository: repository})
-    model.save()
+    model.save {},
+      success: (model) => 
+        @$('.message').html("Issue <a href=\"#{model.get("html_url")}\" target=\"_blank\">##{model.get('number')}</a> was created!")
+      error: =>
+        @$('.message').html("Failed to create issue :(")
      
