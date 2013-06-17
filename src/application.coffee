@@ -11,17 +11,24 @@ class @GithubChrome extends Backbone.View
   initialize: (@options) ->
     @repositories = new RepoCollection
     @render()
-    @badge = new Badge()
     @storage = chrome.storage.local
 
+    @update_badge_count()
     chrome.alarms.create('fetch', { periodInMinutes: 1.0 })
     chrome.alarms.onAlarm.addListener =>
-      @badge.addIssues(1)
+      @update_badge_count()
 
     @user = new User
     @user.fetch
       success: => @renderSection('repos')
       error: => @renderErrors
+
+  update_badge_count: ->
+    issues = new IssueCollection
+    issues.fetch
+      success: (collection) =>
+        @badge = new Badge()
+        @badge.setIssues collection.size()
 
   render: ->
     @renderNav()

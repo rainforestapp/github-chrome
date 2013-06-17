@@ -22,6 +22,19 @@
     display: block;
   }
 
+  .message {
+    > span {
+      display: block;
+      background-color: tint($orange, 95);
+      border-bottom: 1px solid $orange;
+      padding: 0.5em;      
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
   input, textarea {
     width: 100%;
     border: 1px solid $grey;

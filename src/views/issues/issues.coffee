@@ -8,6 +8,9 @@ class @IssuesView extends Backbone.View
     @.listenTo @collection, 'sync', @render
 
   render: ->
+    @badge = new Badge()
+    @badge.setIssues(@collection.size())
+
     if @collection.isEmpty()
       @$el.html('<div class="no-issue">No issues are currently assigned to you.</div>')
     else
